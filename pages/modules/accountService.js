@@ -68,10 +68,9 @@ accountService.getUserInfo = function () {
         if (_userInfo.thirdSessionId !== '') {
             resolve(_userInfo);
         }
-        // let loginInfo = StorageService.getStorageForGlobalSync({
-        //     'key': StorageKeys.LoginInfo
-        // });
-        let loginInfo = null;
+        let loginInfo = StorageService.getStorageForGlobalSync({
+            'key': StorageKeys.LoginInfo
+        });
         if (!loginInfo) {
             wxLogin().then((res) => {
                 // console.log(LOG_TAG + 'bindWxLogin '+JSON.stringify(res));
